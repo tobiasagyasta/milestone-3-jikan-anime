@@ -1,4 +1,6 @@
 import BackButton from "@/components/BackButton";
+
+//Static Site Generation for static page!
 const AboutPage = () => {
   return (
     <div className="min-h-screen p-8">

@@ -1,6 +1,7 @@
 import BackButton from "@/components/BackButton";
 import FavoriteButton from "@/components/FavoriteButton";
 
+//Server Side Request for anime details
 async function getAnimeData(mal_id) {
   const response = await fetch(`https://api.jikan.moe/v4/anime/${mal_id}/full`);
 
