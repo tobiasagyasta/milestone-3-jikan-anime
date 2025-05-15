@@ -30,4 +30,3 @@ npm run dev
 - Pencarian anime
 - Menampilkan detail anime
 - Daftar anime populer
-- Filter berdasarkan kategori
