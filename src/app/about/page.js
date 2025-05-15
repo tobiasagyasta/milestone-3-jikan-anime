@@ -1,4 +1,6 @@
 import BackButton from "@/components/BackButton";
+//No "use client"
+//No React hooks (useEffect, useState, etc.)
 
 //Static Site Generation for static page!
 const AboutPage = () => {

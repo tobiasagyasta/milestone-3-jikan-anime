@@ -1,5 +1,5 @@
-import BackButton from "@/components/BackButton";
-import FavoriteButton from "@/components/FavoriteButton";
+import BackButton from "@/components/BackButton"; //CSR
+import FavoriteButton from "@/components/FavoriteButton"; //CSR
 
 //Server Side Request for anime details
 async function getAnimeData(mal_id) {
