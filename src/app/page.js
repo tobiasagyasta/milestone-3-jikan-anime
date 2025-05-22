@@ -5,7 +5,9 @@ import Head from "next/head";
 import SearchBar from "../components/SearchBar";
 import AnimeCard from "../components/AnimeCard";
 import LoadingSpinner from "../components/LoadingSpinner";
+import Navigation from "../components/Navigation";
 import Link from "next/link";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Home() {
   const [animeList, setAnimeList] = useState([]);
@@ -71,7 +73,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen p-8">
+    <div className="min-h-screen p-8 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
       <Head>
         <title>Anime Search App</title>
         <meta
@@ -80,29 +82,20 @@ export default function Home() {
         />
       </Head>
 
-      <main className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-2">
-          Toby's Anime List
-        </h1>
-        <div className="flex justify-center mb-6">
-          <Link
-            href={"/about"}
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:underline focus:underline cursor-pointer transition-colors"
-          >
-            About
-          </Link>
-        </div>
-
+      <Navigation />
+      <main className="max-w-7xl mx-auto pt-4">
         <SearchBar onSearch={searchAnime} />
 
         {isLoading ? (
           <LoadingSpinner />
         ) : error ? (
-          <div className="text-center text-red-500 py-4">{error}</div>
+          <div className="text-center text-red-500 dark:text-red-400 py-4">
+            {error}
+          </div>
         ) : searchPerformed ? (
           <>
             {animeList.length === 0 ? (
-              <div className="text-center py-4">
+              <div className="text-center py-4 dark:text-gray-300">
                 No results found. Try a different search term.
               </div>
             ) : (
@@ -114,14 +107,14 @@ export default function Home() {
             )}
             <button
               onClick={resetSearch}
-              className="mx-auto mt-6 block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+              className="mx-auto mt-6 block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700"
             >
               Back to Top Anime
             </button>
           </>
         ) : (
           <>
-            <h1 className="mx-auto text-center text-2xl font-bold mt-4 underline underline-offset-4">
+            <h1 className="mx-auto text-center text-2xl font-bold mt-4 underline underline-offset-4 dark:text-white">
               Top Animes to watch!
             </h1>
             {isTopLoading ? (

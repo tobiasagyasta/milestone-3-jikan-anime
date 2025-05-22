@@ -1,12 +1,14 @@
 import BackButton from "@/components/BackButton";
+import Navigation from "@/components/Navigation";
 //No "use client"
 //No React hooks (useEffect, useState, etc.)
 
 //Static Site Generation for static page!
 const AboutPage = () => {
   return (
-    <div className="min-h-screen p-8">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen">
+      <Navigation />
+      <div className="max-w-3xl mx-auto p-8">
         <div className="mb-8 border-b-2 pb-2">
           <BackButton />
         </div>

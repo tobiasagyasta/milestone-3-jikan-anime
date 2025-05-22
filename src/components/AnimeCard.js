@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function AnimeCard({ anime }) {
+  const router = useRouter();
   return (
     <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col p-4">
       <div className="relative h-[250px] w-full">
@@ -18,11 +20,16 @@ export default function AnimeCard({ anime }) {
       </div>
 
       <div className="p-5 flex-1 flex flex-col">
-        <Link href={`/anime/${anime.mal_id}`}>
-          <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            {anime.title}
-          </h3>
-        </Link>
+        {/* <Link href={`/anime/${anime.mal_id}`}> */}
+        <h3
+          onClick={() => {
+            router.push(`/anime/${anime.mal_id}`);
+          }}
+          className="font-bold text-xl mb-2 text-gray-900 dark:text-white cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >
+          {anime.title}
+        </h3>
+        {/* </Link> */}
 
         <div className="text-sm text-gray-600 dark:text-gray-300 mb-3 flex flex-wrap gap-2">
           <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">

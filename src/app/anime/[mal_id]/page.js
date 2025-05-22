@@ -55,7 +55,7 @@ export default async function AnimeAllInfo({ params }) {
               {anime.popularity}
             </p>
             <div className="flex items-center">
-              <FavoriteButton />
+              <FavoriteButton anime={anime} />
             </div>
             <div className="flex gap-2 flex-wrap">
               {anime.genres.map((genre) => (
